@@ -1,5 +1,6 @@
 package com.xunhuan.java.model;
 
+import com.xunhuan.java.enums.Status;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -17,5 +18,6 @@ public class Employee {
     private String name;
     private int age;
     private double salary;
+    private Status status;
 
 }

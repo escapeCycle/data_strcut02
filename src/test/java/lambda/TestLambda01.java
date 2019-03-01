@@ -1,5 +1,6 @@
 package lambda;
 
+import com.xunhuan.java.enums.Status;
 import com.xunhuan.java.model.Employee;
 import org.junit.Test;
 
@@ -15,11 +16,11 @@ import java.util.function.Consumer;
 public class TestLambda01 {
 
     List<Employee> employees = Arrays.asList(
-            new Employee("1",18,9999.99),
-            new Employee("2",28,8888.88),
-            new Employee("3",60,6666.66),
-            new Employee("4",100,3333.33),
-            new Employee("5",200,1111.11)
+            new Employee("1",18,9999.99,Status.BUSY),
+            new Employee("2",28,8888.88,Status.FREE),
+            new Employee("3",60,6666.66,Status.BUSY),
+            new Employee("4",100,3333.33,Status.BUSY),
+            new Employee("5",200,1111.11,Status.ING)
     );
 
 
