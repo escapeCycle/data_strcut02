@@ -11,7 +11,7 @@ public class OddAndEvenSeparate {
     public static void main(String[] args) {
         int[] arrs = new int[]{4, 6, 5, 3, 2, 9};
 
-        oddEvenSwap2(arrs);
+        oddAddEven(arrs);
 
 
         for (int i = 0; i < arrs.length; i++) {
