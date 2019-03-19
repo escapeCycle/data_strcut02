@@ -17,7 +17,7 @@ public class ChoiceSort {
             int minIndex = i;
 
             for(int j = i+1;j<arrs.length;j++){
-                if(arrs[j] < arrs[i]){
+                if(arrs[j] < arrs[minIndex]){
                     minIndex = j;
                 }
             }

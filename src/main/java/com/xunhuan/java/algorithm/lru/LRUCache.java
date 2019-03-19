@@ -1,4 +1,4 @@
-package com.xunhuan.java.algorithm.leetcode;
+package com.xunhuan.java.algorithm.lru;
 
 import java.util.HashMap;
 import java.util.LinkedList;

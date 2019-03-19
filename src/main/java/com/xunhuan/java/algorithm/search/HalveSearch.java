@@ -2,7 +2,7 @@ package com.xunhuan.java.algorithm.search;
 
 /**
  * 折半查找
- *
+ * 1, 2, 3, 5, 9, 6, 4  先增后减数组
  * @author tianhuan
  * @date 2019-02-22 18:16
  **/

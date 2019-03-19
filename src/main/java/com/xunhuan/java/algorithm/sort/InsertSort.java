@@ -4,21 +4,24 @@ import java.util.Arrays;
 
 /**
  * 插入排序
+ *
  * @author tianhuan
  * @date 2018-11-27 15:14
  **/
 public class InsertSort {
 
     /**
+     * 移动法
      * 普通的插入排序
+     *
      * @param arrs
      */
-    public void sort(int[] arrs){
-        if(arrs == null || arrs.length <= 1){
+    public void sort(int[] arrs) {
+        if (arrs == null || arrs.length <= 1) {
             return;
         }
         for (int i = 1; i < arrs.length; i++) {
-            if(arrs[i] < arrs[i-1]){
+            if (arrs[i] < arrs[i - 1]) {
                 int temp = arrs[i];
                 int j;
                 /*
@@ -32,21 +35,21 @@ public class InsertSort {
         }
     }
 
-    public void sort2(int[] arrs){
-        if(arrs == null || arrs.length <= 1){
+    public void sort2(int[] arrs) {
+        if (arrs == null || arrs.length <= 1) {
             return;
         }
         for (int i = 1; i < arrs.length; i++) {
-            if(arrs[i] < arrs[i-1]){
+            if (arrs[i] < arrs[i - 1]) {
                 int temp = arrs[i];
                 int j;
                 /*
                     遍历当前数字前面的数字
                  */
                 for (j = i - 1; j >= 0; j--) {
-                    if(temp <arrs[j]){
+                    if (temp < arrs[j]) {
                         arrs[j + 1] = arrs[j];
-                    }else{
+                    } else {
                         break;
                     }
 
@@ -56,8 +59,37 @@ public class InsertSort {
         }
     }
 
+    public void sort3(int[] arrs) {
+        if (arrs == null || arrs.length <= 1) {
+            return;
+        }
+
+        for (int i = 1; i < arrs.length; i++) {
+            /*
+                插入的数
+             */
+            int insertVal = arrs[i];
+            /*
+                前一个位置
+             */
+            int index = i - 1;
+            while (index >= 0 && insertVal < arrs[index]) {
+                arrs[index + 1] = arrs[index];
+                /*
+                    向前移动
+                 */
+                index--;
+            }
+            /*
+                将本次插入的数放到合适位置
+             */
+            arrs[index + 1] = insertVal;
+        }
+    }
+
     /**
      * 希尔排序
+     *
      * @param arrs
      */
     public void shellSort(int[] arrs) {
@@ -86,13 +118,13 @@ public class InsertSort {
     public static void main(String[] args) {
         int[] arr = new int[]{66, 22, 55, 111, 29, 56, 99, 22};
         InsertSort sort = new InsertSort();
-//        sort.sort(arr);
-//
-//        Arrays.stream(arr).forEach(System.out::println);
-
-        sort.shellSort(arr);
+        sort.sort3(arr);
 
         Arrays.stream(arr).forEach(System.out::println);
+//
+//        sort.shellSort(arr);
+//
+//        Arrays.stream(arr).forEach(System.out::println);
 
     }
 

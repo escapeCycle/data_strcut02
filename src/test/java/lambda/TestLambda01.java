@@ -4,9 +4,7 @@ import com.xunhuan.java.enums.Status;
 import com.xunhuan.java.model.Employee;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -42,5 +40,29 @@ public class TestLambda01 {
             return Integer.compare(x,y);
         };
         com.compare(1,2);
+    }
+
+    public static void main(String[] args) {
+        Collection<String> list = new ArrayList<String>();
+        list.add("Android");
+        list.add("iPhone");
+        list.add("Windows Mobile");
+
+        // Which Code will throw ConcurrentModificationException, both,
+        // none or one of them
+
+        // example 1
+//        Iterator<String> itr = list.iterator();
+//        while(itr.hasNext()){
+//            String lang = itr.next();
+//            list.remove(lang);
+//        }
+
+        // example 2
+        for(String language: list){
+            if(language.equals("iPhone")){
+                list.remove(language);
+            }
+        }
     }
 }
