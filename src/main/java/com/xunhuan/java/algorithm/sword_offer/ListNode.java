@@ -1,4 +1,4 @@
-package com.xunhuan.java.algorithm.leetcode;
+package com.xunhuan.java.algorithm.sword_offer;
 
 public class ListNode {
     int val;

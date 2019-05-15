@@ -1,5 +1,8 @@
 package com.xunhuan.java.algorithm.leetcode.recursion;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 斐波那契数列
  * F(0) = 0,   F(1) = 1
@@ -24,6 +27,10 @@ public class LeetCode_509 {
     public int fib(int N) {
         if (N <= 1) {
             return N;
+        }
+        Map<Integer, Integer> map = new HashMap<>(10);
+        if(map.containsKey(N)){
+            return map.get(N);
         }
         System.out.println(++i);
         return fib(N - 1) + fib(N - 2);
