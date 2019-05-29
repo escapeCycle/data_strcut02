@@ -21,7 +21,7 @@ public class RedPackageCalc {
         }
         Random r = new Random();
         double min = 0.01;
-        double max = _redPackage.remainMoney / _redPackage.remainSize * 3;
+        double max = _redPackage.remainMoney / _redPackage.remainSize * 2;
         double money = r.nextDouble() * max;
         money = money <= min ? 0.01 : money;
         money = Math.floor(money * 100) / 100;
