@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 /**
@@ -196,7 +198,33 @@ public class IdGenerator {
 //        System.out.println(new Date("04 Apr 2017 00:00:00 GMT").getTime());
 //        System.out.println(new Date("04 Apr 2017 00:00:00 CST").getTime());
 
-        IdGenerator idGenerator = new IdGenerator(1, 0);
+//        Stat exists = zooKeeper.exists(root, false);
+//        if (exists == null) {
+//            zooKeeper.create(root, new byte[0], OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+//        }
+        Map<Long, Long> map = new HashMap<>();
+        map.put(1L,1L);
+        long index = 0;
+        for (; ; ) {
+//            String path = "/idGenerator" + "/" + index;
+//            String exists = zooKeeper.exists(path, false);
+//            if (exists == null) {
+//                zooKeeper.create(path, new byte[0], OPEN_ACL_UNSAFE, EPHEMERAL);
+//                break;
+//            } else {
+//                log.info(String.format("work id %s existed in zookeeper storage", index));
+//            }
+
+            if(!map.containsKey(index)){
+                map.put(index,index);
+                break;
+            }else{
+                System.out.println("exist in map");
+            }
+            index = index + 1;
+        }
+
+        IdGenerator idGenerator = new IdGenerator(index % 1024 % 32, (index % 1024) / 32);
         System.out.println(idGenerator.nextIdAsLong());
     }
 }
