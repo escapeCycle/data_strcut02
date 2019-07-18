@@ -31,6 +31,54 @@ public class RedPackageCalc {
         return money;
     }
 
+
+    /**
+     * 二倍均值法
+     * 假设人数为 N，钱数为 M，且都为整数。
+     *
+     * 每次分配的红包为 [0, 2*M/N] 之间的某个随机数，那么分配的红包的均值为 M/N。
+     *
+     * 该算法可以保证每次分配的红包均值都为 M/N，但是并不能保证每个红包的均值都一样，因为 M 和 N 一直在变化，那么 M/N 的值就会不同。
+     *
+     * @param people
+     * @param money
+     * @return
+     */
+    public static List<Integer> generatePacketsByDoubleMean(int people, int money) {
+        List<Integer> packets = new ArrayList<>();
+        Random random = new Random();
+        while (people > 1) {
+            int p = random.nextInt(2 * money / people);
+            packets.add(p);
+            money -= p;
+            people--;
+        }
+        packets.add(money);
+        return packets;
+    }
+
+    /**
+     * 线性切割法
+     * @param people
+     * @param money
+     * @return
+     */
+    public static List<Integer> generatePacketsByLineCutting(int people, int money) {
+        List<Integer> packets = new ArrayList<>();
+        Random random = new Random();
+        Set<Integer> points = new TreeSet<>();
+        while (points.size() < people - 1) {
+            points.add(random.nextInt(money - 1));
+        }
+        points.add(money);
+        int pre = 0;
+        for (int p : points) {
+            packets.add(p - pre);
+            pre = p;
+        }
+        return packets;
+    }
+
     public static void main(String[] args) {
         Map<Integer, Double> map = new HashMap<>();
         for (int i = 0; i < 20000; ++i) {
@@ -52,6 +100,13 @@ public class RedPackageCalc {
 
         System.out.println(map);
 
+
+        List<Integer> result = generatePacketsByDoubleMean(5, 10000);
+
+        System.out.println(result);
+
+        List<Integer> result2 = generatePacketsByLineCutting(5, 10000);
+        System.out.println(result2);
     }
 }
 
