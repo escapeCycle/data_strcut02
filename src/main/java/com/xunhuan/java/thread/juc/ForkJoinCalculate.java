@@ -1,4 +1,4 @@
-package com.xunhuan.java;
+package com.xunhuan.java.thread.juc;
 
 import java.util.concurrent.RecursiveTask;
 
@@ -14,9 +14,9 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
     private long start;
     private long end;
 
-    public static final long THRESHOLD = 100000;
+    public static final long THRESHOLD = 100;
 
-    public ForkJoinCalculate(long start,long end) {
+    public ForkJoinCalculate(long start, long end) {
         this.start = start;
         this.end = end;
     }
@@ -24,19 +24,19 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
     @Override
     protected Long compute() {
         long length = end - start;
-        if(length <= THRESHOLD){
+        if (length <= THRESHOLD) {
             long sum = 0;
-            for (long i = start ; i <= end ; i++){
-                sum = sum+i;
+            for (long i = start; i <= end; i++) {
+                sum = sum + i;
             }
             return sum;
-        }else{
+        } else {
 
-            long middle = (end - start) /2;
-            ForkJoinCalculate left = new ForkJoinCalculate(start,middle);
+            long middle = start + (end - start) / 2;
+            ForkJoinCalculate left = new ForkJoinCalculate(start, middle);
             left.fork(); // 拆分子任务 同时压入线程队列
 
-            ForkJoinCalculate right = new ForkJoinCalculate(middle+1,end);
+            ForkJoinCalculate right = new ForkJoinCalculate(middle + 1, end);
             right.fork();
 
             return left.join() + right.join();

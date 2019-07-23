@@ -1,6 +1,6 @@
 package stream;
 
-import com.xunhuan.java.ForkJoinCalculate;
+import com.xunhuan.java.thread.juc.ForkJoinCalculate;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -19,21 +19,21 @@ public class TestForkJoin {
      * fork join计算
      */
     @Test
-    public void test01(){
+    public void test01() {
         Instant start = Instant.now();
         ForkJoinPool pool = new ForkJoinPool();
-        ForkJoinTask<Long> task = new ForkJoinCalculate(0,100000L);
+        ForkJoinTask<Long> task = new ForkJoinCalculate(0, 10000L);
         Long sum = pool.invoke(task);
         System.out.println(sum);
         Instant end = Instant.now();
-        System.out.println("耗費時間: "+ Duration.between(start,end).toMillis());
+        System.out.println("耗費時間: " + Duration.between(start, end).toMillis());
     }
 
     /**
      * 并行流
      */
     @Test
-    public void test02(){
+    public void test02() {
 
         long sum = LongStream.rangeClosed(0, 100000000L)
                 .parallel()
