@@ -18,7 +18,7 @@ public class Sword_5 {
         /**
          * 遇到一个空格就在字符串最后加两个空格
          */
-        for (int i = 0; i < L1; i++) {
+        for (int i = 0; i <= L1; i++) {
             if (str.charAt(i) == ' ') {
                 str.append("  ");
             }
