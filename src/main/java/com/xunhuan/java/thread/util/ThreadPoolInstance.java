@@ -15,7 +15,7 @@ public class ThreadPoolInstance {
     private static final long aliveTime = 60L;
 
     /**
-     * FIFO 先进先出阻塞队列（最大Integer.MAX_VALUE），默认是无界队列，指定参数后是有界，
+     * FIFO 先进先出阻塞队列（最大Integer.MAX_VALUE），默认是无界队列，指定参数后是有界，(最大有16个等待执行)
      */
     private static LinkedBlockingQueue queue = new LinkedBlockingQueue(16);
 
