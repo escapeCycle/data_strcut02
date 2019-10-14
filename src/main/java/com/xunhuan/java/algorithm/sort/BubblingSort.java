@@ -28,6 +28,7 @@ public class BubblingSort {
     public void sort(int[] elements){
 
         for (int i = 0; i < elements.length - 1; i++) {
+            boolean flag = false; // 数据是否有交换标志
             /*
                 比较次数
              */
@@ -40,7 +41,11 @@ public class BubblingSort {
                     int temp = elements[j+1];
                     elements[j+1] = elements[j];
                     elements[j] = temp;
+                    flag = true;
                 }
+            }
+            if(!flag){
+                break; //没有数据交换，在本次循环就直接退出
             }
         }
     }
