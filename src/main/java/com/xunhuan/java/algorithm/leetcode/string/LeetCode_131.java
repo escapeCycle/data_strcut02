@@ -1,11 +1,15 @@
 package com.xunhuan.java.algorithm.leetcode.string;
 
+import com.sun.tools.javac.util.Assert;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * 回溯算法
- *
+ * <p>
  * 分割回文串
  * <p>
  * 输入: "aab"
@@ -24,7 +28,7 @@ public class LeetCode_131 {
 
     public List<List<String>> partition(String s) {
 
-        nextWords(s,0,new ArrayList<>());
+        nextWords(s, 0, new ArrayList<>());
 
         return lists;
     }
@@ -68,6 +72,12 @@ public class LeetCode_131 {
 //        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
 //        objectObjectHashMap.put()
 //        Collections.synchronizedMap();
+
+        int[] a = {3, 9, 2, 3, 1, 5};
+        Arrays.sort(a);
+
+        Integer[] b = new Integer[]{3, 9, 2, 3, 1, 5};
+        Collections.sort(Arrays.asList(b));
     }
 
 }

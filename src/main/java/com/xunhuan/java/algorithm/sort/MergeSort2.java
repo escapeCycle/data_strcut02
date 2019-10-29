@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * 归并排序
+ * 时间复杂度O(nlogn) 空间复杂度较高O(n),非原地排序
+ * 稳定排序
  *
  * @author tianhuan
  * @date 2018-11-28 17:55

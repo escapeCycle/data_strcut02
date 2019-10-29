@@ -3,13 +3,14 @@ package com.xunhuan.java.algorithm.search;
 /**
  * 折半查找
  * 1, 2, 3, 5, 9, 6, 4  先增后减数组
+ *
  * @author tianhuan
  * @date 2019-02-22 18:16
  **/
 public class HalveSearch {
 
     public static void main(String[] args) {
-        int[] attr = { 1, 2, 3, 5, 9, 6, 4 };
+        int[] attr = {1, 2, 3, 5, 9, 6, 4};
 //        int[] attr = {9, 7, 5, 3, 1, 2, 4, 6, 10};
 //        int[] attr = {3,2};
 
@@ -20,7 +21,8 @@ public class HalveSearch {
         int s = 0;
         int e = attr.length;
         while (s <= e) {
-            int m = (s + e) / 2;
+//            int m = (s + e) / 2;
+            int m = s + ((e - s) >> 1);
             if (m == s || m == e - 1) {
                 return m;
             }
