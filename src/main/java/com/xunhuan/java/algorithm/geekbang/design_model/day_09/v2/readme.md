@@ -1,0 +1,1 @@
+## 新增其他imagestore时 需要修改ImageStoreFactory 类

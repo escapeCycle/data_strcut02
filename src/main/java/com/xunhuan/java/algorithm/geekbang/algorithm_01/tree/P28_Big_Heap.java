@@ -50,10 +50,35 @@ public class P28_Big_Heap {
         arr[1] = arr[count]; // 堆顶元素等于 最后一个节点的元素
         --count;
         /**
-         * 将堆顶元素放到合适的位置
+         * 将堆顶元素放到合适的位置 , 向下堆化
          */
         heapify(arr, count, 1);
-        arr[count+1] = 0;
+        arr[count + 1] = 0;
+    }
+
+    public void sort(int[] a, int n) {
+        buildHeap(a, n);
+        int k = n;
+        while (k > 1) {
+            CommonUtil.swap(a, 1, k);
+            --k;
+            heapify(a, k, 1);
+        }
+    }
+
+
+    /**
+     * 将数组a构建成堆
+     * n/2 即最后一个节点的父结点
+     *
+     * @param a
+     * @param n
+     */
+    public void buildHeap(int[] a, int n) {
+        for (int i = n / 2; i >= 1; i--) {
+            heapify(a, n, i);
+        }
+
     }
 
     private void heapify(int[] arr, int count, int i) {
@@ -67,10 +92,10 @@ public class P28_Big_Heap {
             if ((2 * i + 1) <= count && arr[2 * i + 1] > arr[max]) {
                 max = 2 * i + 1;
             }
-            if(max == i){
+            if (max == i) {
                 break;
             }
-            CommonUtil.swap(arr,i,max);
+            CommonUtil.swap(arr, i, max);
             i = max;
         }
     }
@@ -88,5 +113,11 @@ public class P28_Big_Heap {
 
         p28_big_heap.removeMax();
         Arrays.stream(p28_big_heap.arr).forEach(System.out::println);
+
+        System.out.println("--------");
+
+        int[] arr = {0, 2, 9, 8, 7, 0, 1}; //数组第一位空出来,用于保证完全二叉树特性（如果从0开始 ，如果节点的下标是 i，那左子节点的下标就是 2*i+1，右子节点的下标就是 2*i+2，父节点的下标就是 2i−1​。）
+        p28_big_heap.sort(arr, arr.length - 1);
+        Arrays.stream(arr).forEach(System.out::println);
     }
 }
