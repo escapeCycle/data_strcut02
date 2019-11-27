@@ -1,0 +1,4 @@
+word txt csc txt csc word
+aaa bbb ccc
+aaa ccc bbb
+word
