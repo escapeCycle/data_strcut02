@@ -10,11 +10,11 @@ public class DefaultApiAuthencator implements ApiAuthencator {
         /**
          * 可以给一个默认的实现
          */
-//        this.credentialStorage = new MysqlCredentialStorage();
+        this.credentialStorage = new DefaultCredentialStorage();
     }
 
     /**
-     * 自己指定一个实现
+     * 自己指定一个实现 如 {@link MysqlCredentialStorage}
      *
      * @param credentialStorage
      */
