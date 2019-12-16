@@ -71,5 +71,8 @@ public class P15_Sqort {
     public static void main(String[] args) {
         double sqrt = P15_Sqort.sqrt2(1909, 6);
         System.out.println(sqrt);
+
+        double res = Math.sqrt(1909);
+        System.out.println(res);
     }
 }
