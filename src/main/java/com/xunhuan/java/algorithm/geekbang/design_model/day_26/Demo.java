@@ -1,0 +1,29 @@
+package com.xunhuan.java.algorithm.geekbang.design_model.day_26;
+
+import com.xunhuan.java.algorithm.geekbang.design_model.day_26.model.RequestInfo;
+
+public class Demo {
+    public static void main(String[] args) {
+        MetricsStorage metricsStorage = new RedisMetricsStorage();
+        MetricsCollector metricsCollector = new MetricsCollector(metricsStorage);
+
+        ConsoleReporter consoleReporter = new ConsoleReporter(metricsStorage);
+        consoleReporter.startRepeatedReport(60, 60);
+
+        EmailReporter emailReporter = new EmailReporter(metricsStorage);
+        emailReporter.startDailyReport();
+
+        metricsCollector.recordRequest(new RequestInfo("register", 123, 10234));
+        metricsCollector.recordRequest(new RequestInfo("register", 223, 11234));
+        metricsCollector.recordRequest(new RequestInfo("register", 323, 12334));
+        metricsCollector.recordRequest(new RequestInfo("login", 23, 12434));
+        metricsCollector.recordRequest(new RequestInfo("login", 1223, 14234));
+
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
