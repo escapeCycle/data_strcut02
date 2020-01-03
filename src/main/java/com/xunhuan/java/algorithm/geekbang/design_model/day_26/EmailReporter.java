@@ -1,23 +1,16 @@
 package com.xunhuan.java.algorithm.geekbang.design_model.day_26;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import com.xunhuan.java.algorithm.geekbang.design_model.day_26.model.RequestStat;
+import java.util.Map;
 
-public class EmailReporter {
-    private MetricsStorage metricsStorage;
-    private ScheduledExecutorService executor;
+public class EmailReporter extends Report {
 
     public EmailReporter(MetricsStorage metricsStorage) {
-        this.metricsStorage = metricsStorage;
-        this.executor = Executors.newSingleThreadScheduledExecutor();
+        super(metricsStorage);
     }
 
-    public void startDailyReport() {
-        executor.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() { //...
-            }
-        }, 0, 24, TimeUnit.HOURS);
+    @Override
+    protected void output(Map<String, RequestStat> requestStat) {
+        //发送邮件
     }
 }

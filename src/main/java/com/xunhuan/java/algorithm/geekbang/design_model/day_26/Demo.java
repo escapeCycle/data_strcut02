@@ -2,16 +2,18 @@ package com.xunhuan.java.algorithm.geekbang.design_model.day_26;
 
 import com.xunhuan.java.algorithm.geekbang.design_model.day_26.model.RequestInfo;
 
+import java.util.concurrent.TimeUnit;
+
 public class Demo {
     public static void main(String[] args) {
         MetricsStorage metricsStorage = new RedisMetricsStorage();
         MetricsCollector metricsCollector = new MetricsCollector(metricsStorage);
 
         ConsoleReporter consoleReporter = new ConsoleReporter(metricsStorage);
-        consoleReporter.startRepeatedReport(60, 60);
+        consoleReporter.startRepeatedReport(60, 60, TimeUnit.SECONDS);
 
         EmailReporter emailReporter = new EmailReporter(metricsStorage);
-        emailReporter.startDailyReport();
+        emailReporter.startRepeatedReport(24,60,TimeUnit.DAYS);
 
         metricsCollector.recordRequest(new RequestInfo("register", 123, 10234));
         metricsCollector.recordRequest(new RequestInfo("register", 223, 11234));
