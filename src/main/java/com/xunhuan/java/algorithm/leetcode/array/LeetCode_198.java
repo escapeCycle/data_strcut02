@@ -78,10 +78,10 @@ public class LeetCode_198 {
      * @return
      */
     public int rob3(int[] nums) {
-        int n = nums.length;
         if (nums == null) {
             return 0;
         }
+        int n = nums.length;
         if (n == 0) {
             return 0;
         }
