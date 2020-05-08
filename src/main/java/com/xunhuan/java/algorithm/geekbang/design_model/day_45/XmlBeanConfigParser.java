@@ -64,14 +64,20 @@ public class XmlBeanConfigParser implements BeanConfigParser {
             Element element = (Element) node;
             BeanDefinition.ConstructorArg constructorArg = null;
             if (element.getAttribute("type") != null && !element.getAttribute("type").isEmpty()) {
-                constructorArg = new BeanDefinition.ConstructorArg();
-                constructorArg.setArg(element.getAttribute("value"));
-                constructorArg.setType(element.getAttribute("type").getClass());
+//                constructorArg = new BeanDefinition.ConstructorArg();
+//                constructorArg.setArg(element.getAttribute("value"));
+//                constructorArg.setType(element.getAttribute("type").getClass());
+                constructorArg = new BeanDefinition.ConstructorArg.Builder()
+                        .setArg(element.getAttribute("value"))
+                        .setType(element.getAttribute("type").getClass()).build();
             }
             if (!element.getAttribute("ref").isEmpty()) {
-                constructorArg = new BeanDefinition.ConstructorArg();
-                constructorArg.setArg(element.getAttribute("ref"));
-                constructorArg.setRef(true);
+//                constructorArg = new BeanDefinition.ConstructorArg();
+//                constructorArg.setArg(element.getAttribute("ref"));
+//                constructorArg.setRef(true);
+                constructorArg = new BeanDefinition.ConstructorArg.Builder()
+                        .setArg(element.getAttribute("ref"))
+                        .setRef(true).build();
             }
             beanDefinition.addConstructorArg(constructorArg);
         }
