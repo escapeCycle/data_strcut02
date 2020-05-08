@@ -1,6 +1,6 @@
-package com.xunhuan.java.algorithm.geekbang.design_model.day_26;
+package com.xunhuan.java.algorithm.geekbang.design_model.day_26.v1;
 
-import com.xunhuan.java.algorithm.geekbang.design_model.day_26.model.RequestInfo;
+import com.xunhuan.java.algorithm.geekbang.design_model.day_26.v1.model.RequestInfo;
 
 import java.util.*;
 import java.util.stream.Collectors;

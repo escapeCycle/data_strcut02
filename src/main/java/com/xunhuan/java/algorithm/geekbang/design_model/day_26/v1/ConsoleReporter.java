@@ -1,7 +1,7 @@
-package com.xunhuan.java.algorithm.geekbang.design_model.day_26;
+package com.xunhuan.java.algorithm.geekbang.design_model.day_26.v1;
 
 import com.google.gson.Gson;
-import com.xunhuan.java.algorithm.geekbang.design_model.day_26.model.RequestStat;
+import com.xunhuan.java.algorithm.geekbang.design_model.day_26.v1.model.RequestStat;
 import java.util.Map;
 
 public class ConsoleReporter extends Report {

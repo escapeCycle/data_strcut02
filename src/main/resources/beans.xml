@@ -1,0 +1,10 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<beans>
+    <bean id="rateLimiter" class="com.xunhuan.java.algorithm.geekbang.design_model.day_45.RateLimiter">
+        <constructor-arg ref="redisCounter"/>
+    </bean>
+    <bean id="redisCounter" class="com.xunhuan.java.algorithm.geekbang.design_model.day_45.RedisCounter" scope="singleton" lazy-init="false">
+        <constructor-arg type="String" value="127.0.0.1" />
+        <constructor-arg type="String" value= "1234" />
+    </bean>
+</beans>
