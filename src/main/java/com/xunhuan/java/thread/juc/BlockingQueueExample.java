@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * {@link java.util.concurrent.PriorityBlockingQueue}
  *
  * take()和put()均为阻塞方法，队列为空take将阻塞，直到队列中有内容，队列已满put将阻塞，直到队列有空位置
- *
+ * taske和put阻塞都是有条件的，队列不为空或队列不满是不会阻塞的
  * */
 public class BlockingQueueExample {
 

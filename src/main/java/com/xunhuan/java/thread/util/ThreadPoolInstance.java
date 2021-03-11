@@ -56,11 +56,16 @@ public class ThreadPoolInstance {
     private static RejectedExecutionHandler handler4 = new ThreadPoolExecutor.CallerRunsPolicy();
 
 
-    public static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(coreSize,
+        public static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(coreSize,
             maxSize,
             aliveTime,
             TimeUnit.SECONDS,
             queue,
             threadFactory,
             handler2);
+
+    public static final ScheduledExecutorService scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(coreSize,
+            threadFactory,
+            handler2);
+
 }
