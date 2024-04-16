@@ -3,6 +3,7 @@ package com.xunhuan.java.utils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -225,6 +226,11 @@ public class IdGenerator {
         }
 
         IdGenerator idGenerator = new IdGenerator(index % 1024 % 32, (index % 1024) / 32);
-        System.out.println(idGenerator.nextIdAsLong());
+        long id = idGenerator.nextIdAsLong();
+        System.out.println(id);
+        System.out.println(Long.toBinaryString(id));
+
+        System.out.println(Long.toBinaryString(idGenerator.timeGen()-twepoch));
+        System.out.println(LocalDateTime.now().getYear());
     }
 }

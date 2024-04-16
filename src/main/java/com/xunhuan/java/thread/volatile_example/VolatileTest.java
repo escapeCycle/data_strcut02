@@ -29,9 +29,9 @@ public class VolatileTest {
             threads[i].start();
         }
         //
-        //while (Thread.activeCount() > 1) {
-        //    Thread.yield();
-        //}
+        while (Thread.activeCount() > 1) {
+            Thread.yield();
+        }
         countDownLatch.await();
         System.out.println(race);
     }

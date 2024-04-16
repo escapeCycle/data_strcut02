@@ -24,7 +24,7 @@ public class MedianNum {
         }
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
         while (iMin <= iMax) {
-            int i = (iMin + iMax) / 2;
+            int i = iMin + (iMax - iMin) / 2;
             int j = halfLen - i;
             if (i < iMax && nums2[j - 1] > nums1[i]) {
                 /*
@@ -69,6 +69,6 @@ public class MedianNum {
 
 
     public static void main(String[] args) {
-
+        System.out.println(1/2);
     }
 }

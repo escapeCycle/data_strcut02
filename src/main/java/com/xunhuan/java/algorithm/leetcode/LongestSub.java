@@ -50,6 +50,7 @@ public class LongestSub {
 
         int abcbcdf = longestSub.lengthOfLongestSubstring2("abcbacbb");
         System.out.println(abcbcdf);
+        Long a = 100L;
     }
 
 }

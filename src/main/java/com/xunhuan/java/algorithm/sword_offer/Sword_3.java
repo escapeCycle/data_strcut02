@@ -12,6 +12,13 @@ import com.xunhuan.java.algorithm.util.CommonUtil;
  * Output:
  * 2
  *
+ * 1 3 2 0 1 5
+ * 3 1 2 0 1 5
+ * 0 1 2 3 1 5
+ * 此时 nums[i] = nums[nums[i]]
+ *
+ *
+ *
  * @author tianhuan
  * @date 2019-04-19 12:13
  **/
@@ -19,14 +26,17 @@ public class Sword_3 {
 
     public boolean duplicate(int[] nums, int length, int[] duplication) {
         if (nums == null || length <= 0) return false;
-
         for (int i = 0; i < length; i++) {
-            while (nums[i] != i){
-                if(nums[i] == nums[nums[i]]){
+            // 保证数组中数字在 0(包含) -- length-1(不包含) 之间
+            if (nums[i] >= length || nums[i] < 0) {
+                return false;
+            }
+            while (nums[i] != i) {
+                if (nums[i] == nums[nums[i]]) {
                     duplication[0] = nums[i];
                     return true;
                 }
-                CommonUtil.swap(nums,i,nums[i]);
+                CommonUtil.swap(nums, i, nums[i]);
             }
         }
         return false;

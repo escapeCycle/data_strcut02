@@ -3,8 +3,7 @@ package com.xunhuan.java.algorithm.geekbang.design_model.day_29;
 import com.google.common.annotations.VisibleForTesting;
 import com.xunhuan.java.algorithm.geekbang.design_model.day_29.enums.STATUS;
 import lombok.Data;
-
-import javax.transaction.InvalidTransactionException;
+import java.io.InvalidClassException;
 
 @Data
 public class Transaction {
@@ -54,9 +53,9 @@ public class Transaction {
         return executionInvokedTimestamp - createTimestamp > 14;
     }
 
-    public boolean execute() throws InvalidTransactionException {
+    public boolean execute() throws InvalidClassException {
         if ((buyerId == null || (sellerId == null || amount < 0.0))) {
-            throw new InvalidTransactionException("");
+            throw new InvalidClassException("");
         }
         if (status == STATUS.EXECUTED) return true;
         boolean isLocked = false;

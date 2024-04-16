@@ -3,7 +3,8 @@ package com.xunhuan.java.algorithm.geekbang.design_model.day_29;
 import com.xunhuan.java.algorithm.geekbang.design_model.day_29.enums.STATUS;
 import org.junit.Assert;
 
-import javax.transaction.InvalidTransactionException;
+import java.io.InvalidClassException;
+
 
 /**
  * @author tianh
@@ -12,7 +13,7 @@ import javax.transaction.InvalidTransactionException;
  */
 public class TestTransaction {
 
-    public void testExecute() throws InvalidTransactionException {
+    public void testExecute() throws InvalidClassException {
         Long buyerId = 123L;
         Long sellerId = 234L;
         Long productId = 345L;

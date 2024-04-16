@@ -3,6 +3,8 @@ package com.xunhuan.java;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author tianhuan
@@ -28,6 +30,8 @@ public class App {
         BigDecimal bigDecimal = new BigDecimal(-112335.92);
         BigDecimal abs = bigDecimal.abs(new MathContext(12, RoundingMode.HALF_UP)).setScale(2,RoundingMode.HALF_UP);
         System.out.println(abs);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
 
     }
 }

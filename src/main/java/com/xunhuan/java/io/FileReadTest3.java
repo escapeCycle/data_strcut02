@@ -20,7 +20,7 @@ public class FileReadTest3 {
     public static void main(String[] args) {
         try {
 
-            FileReader fr = new FileReader("src/main/resources/policyText");
+            FileReader fr = new FileReader("src/main/resources/policyText-20220412");
             BufferedReader bf = new BufferedReader(fr);
             String str;
             PolicyModel policyModel = new PolicyModel();
@@ -34,7 +34,7 @@ public class FileReadTest3 {
                 //    }
                 //
                 //}
-                if("策略集".equals(splitText[0])){
+                if("策略集".equals(splitText[0]) || "规则集".equals(splitText[0])){
                     policy.setType("RULE");
                 }else if("决策流".equals(splitText[0])){
                     policy.setType("D_FLOW");
